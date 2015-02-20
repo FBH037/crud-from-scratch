@@ -1,0 +1,10 @@
+<h1> <%= "#{@status_update.status}"  %> </h1>
+<%= link_to "Home", status_updates_path %>
+<%= link_to "Edit", edit_status_update_path(@status_update) %>
+<%= link_to "Delete", status_update_path(@status_update) %><br>
+
+<table>
+  <tr> <strong>Status:</strong> <%= @status_update.status %></tr><br>
+  <tr> <strong>User:</strong> <%= @status_update.user %></tr><br>
+  <tr> <strong>Likes:</strong> <%= @status_update.number_of_likes %></tr>
+</table>

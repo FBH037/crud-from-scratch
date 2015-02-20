@@ -24,7 +24,7 @@ class StatusUpdatesController < ApplicationController
   end
 
   def update
-    if @status_update.update
+    if @status_update.update(status_update_params)
       redirect_to status_update_path(@status_update), notice: "Status update was successfully updated"
     else render :edit
     end
@@ -33,7 +33,7 @@ class StatusUpdatesController < ApplicationController
   def destroy
     @status_update.destroy
     if @status_update.destroy
-      redirect_to status_updates, notice: "Status update was successfully destroyed"
+      redirect_to status_updates_path, notice: "Status update was successfully destroyed"
     end
   end
 
