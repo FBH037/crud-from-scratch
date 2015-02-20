@@ -12,6 +12,7 @@ class StatusUpdatesController < ApplicationController
   end
 
   def create
+    @status_update = StatusUpdate.new(status_update_params)
     if @status_update.save
       redirect_to status_update_path(@status_update), notice: "Status update was successfully created"
     else

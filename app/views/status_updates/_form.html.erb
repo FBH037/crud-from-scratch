@@ -1,0 +1,14 @@
+<%= form_for @status_update do |f| %>
+<%= f.label :user %>
+<%= f.text_field :user %><br>
+<%= f.label :status%>
+<%= f.text_field :status %><br>
+<%= f.label :number_of_likes %>
+<%= f.number_field :number_of_likes %>
+<% if @status_update.new_record? %>
+<%= f.submit "Create Status Update" %>
+<% else %>
+<%= f.submit "Update Status Update" %>
+<% end %>
+<% end %>
+<%= link_to "Cancel", status_updates_path %>
