@@ -1,0 +1,24 @@
+<h1>Status Updates</h1>
+
+<%= link_to "New Status", new_status_update_path %>
+
+<table>
+  <head>
+    <tr>
+      <th>User </th>
+      <th>Status Update</th>
+      <th>Likes</th>
+    </tr>
+  </head>
+  <tbody>
+    <% @status_updates.each do |status_update| %>
+    <tr>
+      <td> <%= link_to status_update.user, status_update_path(status_update) %></td>
+      <td> <%= status_update.status %></td>
+      <td> <%= status_update.number_of_likes%></td>
+      <td> <%= link_to "Edit", edit_status_update_path(status_update)%></td>
+      <td> <%= link_to "Delete", status_update_path(status_update), method: :delete%></td>
+    </tr>
+    <% end %>
+  <tbody>
+</table>
