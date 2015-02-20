@@ -3,8 +3,7 @@
 <%= f.text_field :user %><br>
 <%= f.label :status%>
 <%= f.text_field :status %><br>
-<%= f.label :number_of_likes %>
-<%= f.number_field :number_of_likes %><br><br>
+<br>
 <% if @status_update.new_record? %>
 <%= f.submit "Create Status" %>
 <% else %>

@@ -7,6 +7,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'status_updates#index'
   resources :status_updates
+    # match '/like', :controller => 'status_updates', :action => 'like', :via => [:post]
+    # get '/like', :controller => 'status_updates', :action => 'like'
+    post 'status_updates/:id/like' => 'status_updates#like', as: :like
+#match 'examples/create_a', :controller => 'examples', :action => 'create_a'
+  # get '/like' => 'status_updates#like'
+
+
+  # match "/users/:id/promote_to_premium" => "users#promote_to_premium"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

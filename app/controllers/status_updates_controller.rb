@@ -1,7 +1,13 @@
 class StatusUpdatesController < ApplicationController
-  before_action :set_status_update, only: [:show, :edit, :update, :destroy]
+  before_action :set_status_update, only: [:show, :edit, :update, :destroy, :like]
   def index
-    @status_updates = StatusUpdate.all
+    @status_updates = StatusUpdate.all.order(:number_of_likes).reverse
+  end
+
+  def like
+  @status_update.number_of_likes += 1
+  @status_update.save
+  redirect_to status_updates_path
   end
 
   def show
@@ -13,6 +19,7 @@ class StatusUpdatesController < ApplicationController
 
   def create
     @status_update = StatusUpdate.new(status_update_params)
+    @status_update.number_of_likes = 0
     if @status_update.save
       redirect_to status_update_path(@status_update), notice: "Status update was successfully created"
     else
